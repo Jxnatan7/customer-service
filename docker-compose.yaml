@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  customer-service:
+    image: postgres:latest
+    container_name: customer-service
+    environment:
+      POSTGRES_DB: customer
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - customer-network
+
+networks:
+  customer-network:
+    driver: bridge
